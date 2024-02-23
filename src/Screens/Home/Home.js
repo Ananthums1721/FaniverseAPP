@@ -38,7 +38,7 @@ const Home = (props) => {
     { id: "5", title: "Item 3", imageUrl: images.Welcome_2 },
     { id: "6", title: "Item 2", imageUrl: images.Welcome_3 },
     { id: "7", title: "Item 3", imageUrl: images.Welcome_3 },
-    // Add more items as need
+    // Add more items as needs
   ];
   const swiperdata = [
     { id: "1", title: "Item 1", imageUrl: images.ViratBanner },
