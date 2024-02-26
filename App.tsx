@@ -12,6 +12,8 @@ import {
 import {Provider} from 'react-redux';
 import reduxStore from './src/redux/store';
 import Routes from './src/Routes';
+import { NavigationContainer } from '@react-navigation/native';
+import TabNavigator from './src/Routes/TabNavigator';
 
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
@@ -20,6 +22,8 @@ const App = () => {
   return (
     <Provider store={reduxStore}>
       <Routes />
+      {/* <TabNavigator /> */}
+
     </Provider>
   );
 };
