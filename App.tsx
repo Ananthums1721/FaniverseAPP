@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeStack from './src/Routes/HomeStack';
 import TabNavigator from './src/Routes/TabNavigator';
+import Authstack from './src/Routes/Authstack';
 const Stack = createStackNavigator();
 
 
@@ -19,8 +20,9 @@ const App = () => {
     <Provider store={reduxStore}>
       {/* <Routes /> */}
       {/* <TabNavigator /> */}
+
       <NavigationContainer>
-          <Stack.Navigator initialRouteName="home">
+          {/* <Stack.Navigator initialRouteName="home">
             <Stack.Screen
               name="home"
               component={TabNavigator}
@@ -28,7 +30,9 @@ const App = () => {
                 headerShown: false,
               }}
             />
-          </Stack.Navigator>
+          </Stack.Navigator> */}
+      <Authstack/>
+
 
         </NavigationContainer>
 

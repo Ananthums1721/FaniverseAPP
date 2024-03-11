@@ -75,7 +75,7 @@ const LoginScreen = (props) => {
       changecheckPassword("Password must be at least 6 characters long"); // Set error message
       // alert('Please enter password'); // Set error message
     } else {
-      navigation.replace("Home");
+      navigation.replace("tabs");
       // local.storeLogin(true);
     }
   };

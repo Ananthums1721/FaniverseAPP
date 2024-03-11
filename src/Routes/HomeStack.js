@@ -37,7 +37,7 @@ const HomeStack = () => {
     // <NavigationContainer>
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="SplashScreen" component={SplashScreen} />
-      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+      {/* <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="GetStarted" component={GetStarted} />
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="OtpScreen" component={OtpScreen} />
@@ -49,7 +49,7 @@ const HomeStack = () => {
       <Stack.Screen name="GenderScreen" component={GenderScreen} />
       <Stack.Screen name="DOBScreen" component={DOBScreen} />
       <Stack.Screen name="InterestSelection" component={InterestSelection} />
-      <Stack.Screen name="SuccessScreen" component={SuccessScreen} />
+      <Stack.Screen name="SuccessScreen" component={SuccessScreen} /> */}
       {/* <Stack.Screen name="Home" component={Home} /> */}
       <Stack.Screen name="DiscoverTrends" component={DiscoverTrends} />
       <Stack.Screen name="DiscoverSearch" component={DiscoverSearch} />
