@@ -1,21 +1,9 @@
-import {createStore, compose, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import {createLogger} from 'redux-logger';
+
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'; // For handling asynchronous actions
 import reducers from '../reducers';
 
-const middleWare = [];
-
-middleWare.push(thunk);
-
-const loggerMiddleware = createLogger({
-  predicate: () => process.env.NODE_ENV === 'development',
-});
-middleWare.push(loggerMiddleware);
-
-const store = createStore(
-  reducers,
-  {},
-  compose(applyMiddleware(...middleWare)),
-);
+const store = createStore(reducers, applyMiddleware(thunk));
 
 export default store;
+
