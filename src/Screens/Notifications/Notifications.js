@@ -1,15 +1,75 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, FlatList, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, FlatList, StyleSheet, SafeAreaView,Animated } from 'react-native';
 import images from '../../assets/Images';
 import { getHeight, getWidth } from '../../Theme/Constants';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from '../../Components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
+import PopoverMenu from "../../Components/PopoverMenu";
 
 const Notifications = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedTab, setSelectedTab] = useState(0);
+    const [pop, setPop] = useState(false);
+    const [icon_1] = useState(new Animated.Value(40));
+    const [icon_2] = useState(new Animated.Value(40));
+    const [icon_3] = useState(new Animated.Value(40));
+    const [icon_4] = useState(new Animated.Value(40));
+    const [modalTrue, setModalTrue] = useState(false);
 
+    const popIn = () => {
+        setPop(true);
+        Animated.timing(icon_1, {
+          toValue: 120,
+          duration: 900,
+          // duration: 500,
+    
+          useNativeDriver: false,
+        }).start();
+        Animated.timing(icon_2, {
+          toValue: 120,
+          duration: 700,
+          // duration: 500,
+    
+          useNativeDriver: false,
+        }).start();
+        Animated.timing(icon_3, {
+          toValue: 130,
+          duration: 500,
+          useNativeDriver: false,
+        }).start();
+        Animated.timing(icon_4, {
+          toValue: 130,
+          duration: 1100,
+          // duration: 500,
+    
+          useNativeDriver: false,
+        }).start();
+      };
+    
+      const popOut = () => {
+        setPop(false);
+        Animated.timing(icon_1, {
+          toValue: 47,
+          duration: 500,
+          useNativeDriver: false,
+        }).start();
+        Animated.timing(icon_2, {
+          toValue: 40,
+          duration: 500,
+          useNativeDriver: false,
+        }).start();
+        Animated.timing(icon_3, {
+          toValue: 40,
+          duration: 500,
+          useNativeDriver: false,
+        }).start();
+        Animated.timing(icon_4, {
+          toValue: 50,
+          duration: 500,
+          useNativeDriver: false,
+        }).start();
+      };
     const imageData = [
         { id: 1, imageUrl: images.Welcome_1 },
         { id: 2, imageUrl: images.Welcome_2 },
@@ -63,14 +123,26 @@ const Notifications = () => {
                     keyExtractor={(item) => item.id.toString()}
                     contentContainerStyle={styles.flatListContent}
                 />
+                     <PopoverMenu
+        pop={pop}
+        icon_1={icon_1}
+        icon_2={icon_2}
+        icon_3={icon_3}
+        icon_4={icon_4}
+        popIn={popIn}
+        popOut={popOut}
+        // modalTrue={modalTrue}
+        // bttomModal={bttomModal}
+      />
             </View>
+       
         </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        height: getHeight(1.1),
+        height: getHeight(1.2),
         justifyContent: 'center',
         alignSelf: 'center'
 
@@ -91,7 +163,7 @@ const styles = StyleSheet.create({
     flatListContent: {
         flexGrow: 1,
         marginTop: 20,
-        paddingBottom: 50
+        paddingBottom: 60
     },
     itemContainer: {
         justifyContent: 'space-between',

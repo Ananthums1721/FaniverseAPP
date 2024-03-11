@@ -36,6 +36,8 @@ import SubtractSVG from "../../assets/svg/SubtractSVG";
 
 import LinearGradient from "react-native-linear-gradient";
 
+import PopoverMenu from "../../Components/PopoverMenu";
+
 const axios = require("axios").default;
 const height = Dimensions.get("window").height;
 
@@ -44,6 +46,12 @@ const Home = (props) => {
   const [ProfileData, setProfileData] = useState([]);
 
   const [modalFalse, setModalFalse] = useState(true);
+  const [pop, setPop] = useState(false);
+  const [icon_1] = useState(new Animated.Value(40));
+  const [icon_2] = useState(new Animated.Value(40));
+  const [icon_3] = useState(new Animated.Value(40));
+  const [icon_4] = useState(new Animated.Value(40));
+  const [modalTrue, setModalTrue] = useState(false);
 
   const data = [
     { id: "1", title: "Virat Kohli", imageUrl: images.ViratProfile },
@@ -127,14 +135,16 @@ const Home = (props) => {
     alert("upload");
   };
 
-  const [icon_1] = useState(new Animated.Value(40));
-  const [icon_2] = useState(new Animated.Value(40));
-  const [icon_3] = useState(new Animated.Value(40));
-  const [icon_4] = useState(new Animated.Value(40));
+  // const [icon_1] = useState(new Animated.Value(40));
+  // const [icon_2] = useState(new Animated.Value(40));
+  // const [icon_3] = useState(new Animated.Value(40));
+  // const [icon_4] = useState(new Animated.Value(40));
 
-  const [pop, setPop] = useState(false);
+  // const [pop, setPop] = useState(false);
 
   console.log(pop, "----------");
+
+
 
   const popIn = () => {
     setPop(true);
@@ -192,7 +202,7 @@ const Home = (props) => {
 
   const buttonColors = ["#8360C3", "#2EBF91"];
 
-  const [modalTrue, setModalTrue] = useState(false);
+  // const [modalTrue, setModalTrue] = useState(false);
 
   const bttomModal = () => {
     setModalTrue(!modalTrue);
@@ -216,100 +226,17 @@ const Home = (props) => {
         ))}
       </ScrollView>
 
-      {pop === true ? (
-        <LinearGradient
-          start={{ x: 0, y: 0.5 }}
-          end={{ x: 1, y: 0.5 }}
-          colors={["#8360C3", "#2EBF91"]}
-        >
-          <Animated.View
-            style={[styles.circle, { bottom: icon_1, left: icon_1 }]}
-          >
-            <TouchableOpacity>
-              {/* <Icon name="cloud-upload" size={25} color="#FFFF" /> */}
-              <LiveSVG />
-              <Text>Live</Text>
-            </TouchableOpacity>
-          </Animated.View>
-        </LinearGradient>
-      ) : null}
-
-      {pop === true ? (
-        <Animated.View
-          style={[styles.circle, { bottom: icon_2, right: icon_2 }]}
-        >
-          <TouchableOpacity>
-            <FilimSVG />
-            <Text>Flare</Text>
-          </TouchableOpacity>
-        </Animated.View>
-      ) : null}
-
-      {pop === true ? (
-        <Animated.View style={[styles.circle, { right: icon_3 }]}>
-          <TouchableOpacity>
-            <ImageSVG />
-            <Text>Post</Text>
-          </TouchableOpacity>
-        </Animated.View>
-      ) : null}
-
-      {pop === true ? (
-        <Animated.View style={[styles.circle, { left: icon_4 }]}>
-          <TouchableOpacity>
-            <StorySVG />
-            <Text>Story</Text>
-          </TouchableOpacity>
-        </Animated.View>
-      ) : null}
-      {/* 
-      <TouchableOpacity
-        style={styles.clickableGradient}
-        onPress={() => {
-          pop === false ? popIn() : popOut();
-        }}
-      >
-        <FaniverseIconSVG />
-      </TouchableOpacity> */}
-      {modalTrue === true ? (
-        <View style={styles.clickableGradient1}>
-          <View>
-            <SubtractSVG />
-          </View>
-          <TouchableOpacity
-            style={{ position: "absolute", bottom: 20, left: 25 }}
-          >
-            <ImageSVG />
-            <Text style={{ color: "white" }}>Post</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ position: "absolute", bottom: 71, left: 73 }}
-          >
-            <FilimSVG />
-
-            <Text style={{ color: "white" }}>Flare</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ position: "absolute", bottom: 71, left: 148 }}
-          >
-            <LiveSVG />
-            <Text style={{ color: "white" }}>Live</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{ position: "absolute", bottom: 20, left: 200 }}
-          >
-            <StorySVG />
-            <Text style={{ color: "white" }}>Story</Text>
-          </TouchableOpacity>
-        </View>
-      ) : null}
-
-      <TouchableOpacity
-        style={styles.clickableGradient}
-        onPress={() => bttomModal()}
-      >
-        <FaniverseIconSVG />
-      </TouchableOpacity>
+      <PopoverMenu
+        pop={pop}
+        icon_1={icon_1}
+        icon_2={icon_2}
+        icon_3={icon_3}
+        icon_4={icon_4}
+        popIn={popIn}
+        popOut={popOut}
+        // modalTrue={modalTrue}
+        // bttomModal={bttomModal}
+      />
 
       {/* <Footer title={"home"} /> */}
       {/* <HomeScreenModal onPress={modalTrue} /> */}

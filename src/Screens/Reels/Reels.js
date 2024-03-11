@@ -6,10 +6,12 @@ import {
   FlatList,
   Image,
   Dimensions,
+  Animated
 } from "react-native";
 import images from "../../assets/Images";
 import { getHeight, getWidth } from "../../Theme/Constants";
 import Footer from "../../Components/Footer";
+import PopoverMenu from "../../Components/PopoverMenu";
 
 const Reels = () => {
   const data = [
@@ -19,9 +21,69 @@ const Reels = () => {
     // Add more data as needed
   ];
   const [liked, setLiked] = useState(false);
+  const [pop, setPop] = useState(false);
+  const [icon_1] = useState(new Animated.Value(40));
+  const [icon_2] = useState(new Animated.Value(40));
+  const [icon_3] = useState(new Animated.Value(40));
+  const [icon_4] = useState(new Animated.Value(40));
+  const [modalTrue, setModalTrue] = useState(false);
 
   const toggleLike = () => {
     setLiked(!liked);
+  };
+
+  const popIn = () => {
+    setPop(true);
+    Animated.timing(icon_1, {
+      toValue: 120,
+      duration: 900,
+      // duration: 500,
+
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_2, {
+      toValue: 120,
+      duration: 700,
+      // duration: 500,
+
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_3, {
+      toValue: 130,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_4, {
+      toValue: 130,
+      duration: 1100,
+      // duration: 500,
+
+      useNativeDriver: false,
+    }).start();
+  };
+
+  const popOut = () => {
+    setPop(false);
+    Animated.timing(icon_1, {
+      toValue: 47,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_2, {
+      toValue: 40,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_3, {
+      toValue: 40,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_4, {
+      toValue: 50,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
   };
   const renderItem = ({ item }) => (
     <View style={styles.reelItem}>
@@ -96,6 +158,17 @@ const Reels = () => {
         keyExtractor={(item) => item.id}
         // horizontal
         pagingEnabled
+      />
+        <PopoverMenu
+        pop={pop}
+        icon_1={icon_1}
+        icon_2={icon_2}
+        icon_3={icon_3}
+        icon_4={icon_4}
+        popIn={popIn}
+        popOut={popOut}
+        // modalTrue={modalTrue}
+        // bttomModal={bttomModal}
       />
       {/* <Footer title={'reel'} /> */}
     </View>

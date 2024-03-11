@@ -7,6 +7,7 @@ import {
   ScrollView,
   SafeAreaView,
   Dimensions,
+  Animated,
   FlatList,
   Image,
   ImageBackground,
@@ -25,6 +26,7 @@ import ListItem from "../../Components/ListItem";
 import Footer from "../../Components/Footer";
 import LinearGradient from "react-native-linear-gradient";
 import { getHeight, getWidth } from "../../Theme/Constants";
+import PopoverMenu from "../../Components/PopoverMenu";
 
 const axios = require("axios").default;
 const height = Dimensions.get("window").height;
@@ -34,7 +36,65 @@ const Contests = (props) => {
   const [ProfileData, setProfileData] = useState([]);
   const [selectedTab, setSelectedTab] = useState(0);
   const [selecteditem, setSelecteditem] = useState(0);
+  const [pop, setPop] = useState(false);
+  const [icon_1] = useState(new Animated.Value(40));
+  const [icon_2] = useState(new Animated.Value(40));
+  const [icon_3] = useState(new Animated.Value(40));
+  const [icon_4] = useState(new Animated.Value(40));
+  const [modalTrue, setModalTrue] = useState(false);
+  const popIn = () => {
+    setPop(true);
+    Animated.timing(icon_1, {
+      toValue: 120,
+      duration: 900,
+      // duration: 500,
 
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_2, {
+      toValue: 120,
+      duration: 700,
+      // duration: 500,
+
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_3, {
+      toValue: 130,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_4, {
+      toValue: 130,
+      duration: 1100,
+      // duration: 500,
+
+      useNativeDriver: false,
+    }).start();
+  };
+
+  const popOut = () => {
+    setPop(false);
+    Animated.timing(icon_1, {
+      toValue: 47,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_2, {
+      toValue: 40,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_3, {
+      toValue: 40,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+    Animated.timing(icon_4, {
+      toValue: 50,
+      duration: 500,
+      useNativeDriver: false,
+    }).start();
+  };
   const data = [
     { id: "1", title: "Virat Kohli", imageUrl: images.Virat },
     { id: "2", title: "Virat Kohli", imageUrl: images.Welcome_2 },
@@ -426,6 +486,17 @@ const Contests = (props) => {
           ))}
         </ScrollView>
       </ScrollView>
+      <PopoverMenu
+        pop={pop}
+        icon_1={icon_1}
+        icon_2={icon_2}
+        icon_3={icon_3}
+        icon_4={icon_4}
+        popIn={popIn}
+        popOut={popOut}
+        // modalTrue={modalTrue}
+        // bttomModal={bttomModal}
+      />
       {/* <Footer title={'trophy'} /> */}
     </SafeAreaView>
   );
