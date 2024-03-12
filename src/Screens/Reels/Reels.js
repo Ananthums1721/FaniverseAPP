@@ -158,6 +158,8 @@ const Reels = () => {
         keyExtractor={(item) => item.id}
         // horizontal
         pagingEnabled
+      
+
       />
         <PopoverMenu
         pop={pop}

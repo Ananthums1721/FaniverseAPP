@@ -15,14 +15,14 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 import { setApiData } from "../../redux/action";
-import CommonButton from "../../Components/CommonButton";
+
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "../../Components/Header";
 import HorizontalList from "../../Components/HorizontalList";
 import images from "../../assets/Images";
 import SwiperComponent from "../../Components/SwiperComponent";
-import ListItem from "../../Components/ListItem";
+
 import Footer from "../../Components/Footer";
 import LinearGradient from "react-native-linear-gradient";
 import { getHeight, getWidth } from "../../Theme/Constants";
@@ -113,61 +113,7 @@ const Contests = (props) => {
 
     // Add more items as needed
   ];
-  const verticalListData = [
-    {
-      id: "1",
-      name: "Virat Kohli",
-      type: "image",
-      media:
-        "https://i0.wp.com/www.rvcj.com/wp-content/uploads/2023/01/VIRAT-KOHLI-2.jpg?resize=600%2C451&ssl=1",
-      designation: "Bangalore",
-      description:
-        "Stumptown brunch raw umami flannel dollar pour-over ipsum. Booth glossier squid craft kale.😍❤️❤️",
-      image: images.ViratProfile,
-    },
-    {
-      id: "2",
-      name: "Jane Smith",
-      type: "image",
-      media:
-        "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/09/instagram-image-size.jpg",
-      designation: "Product Manager",
-      description: "Software fcrtdcvg ",
-      image: images.Welcome_1,
-    },
-    {
-      id: "3",
-      name: "Alice Johnson",
-      type: "video",
-      media:
-        "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      designation: "UI/UX Designer",
-      description: "Software vhgftrdfcgv bn dr",
-      image: images.Welcome_1,
-    },
-    {
-      id: "4",
-      name: "Virat Kohli",
-      type: "image",
-      media:
-        "https://i0.wp.com/www.rvcj.com/wp-content/uploads/2023/01/VIRAT-KOHLI-2.jpg?resize=600%2C451&ssl=1",
-      designation: "Bangalore",
-      description:
-        "Stumptown brunch raw umami flannel dollar pour-over ipsum. Booth glossier squid craft kale.😍❤️❤️",
-      image: images.ViratProfile,
-    },
-    {
-      id: "5",
-      name: "Jane Smith",
-      type: "image",
-      media:
-        "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/09/instagram-image-size.jpg",
-      designation: "Product Manager",
-      description: "Software fcrtdcvg ",
-      image: images.Welcome_1,
-    },
-    // Add more items as needed
-  ];
+ 
   const handleTabPress = (tabIndex) => {
     setSelectedTab(tabIndex);
   };
@@ -199,15 +145,9 @@ const Contests = (props) => {
         source={item.imageUrl}
         resizeMode="stretch"
         imageStyle={styles.imageStyle}
-        style={{
-          width: getWidth(2.2),
-          padding: 10,
-          height: 220,
-          marginBottom: 15,
-          justifyContent: "space-between",
-        }}
+        style={styles.imgbgd}
       >
-        {/* <Image source={item.imageUrl} style={{ width: '100%', height: 120 }} /> */}
+ 
         <View
           style={{
             width: 80,
@@ -218,11 +158,11 @@ const Contests = (props) => {
             alignItems: "center",
           }}
         >
-          <Text style={{ color: "white" }}>2nd week</Text>
+          <Text style={{ color: "white" , fontFamily: 'Jost-SemiBold',}}>2nd week</Text>
         </View>
         <View>
-          <Text style={{ color: "white" }}>
-            Kohli Chronicles: Unleash Your Inner Champion
+          <Text style={{ color: "white", fontFamily: 'Jost-SemiBold', }}>
+            Kohli Chronicles: Unleash Your Inner Champion 
           </Text>
           <View
             style={{
@@ -242,10 +182,10 @@ const Contests = (props) => {
               }}
             >
               {swiperdata.map((item) =>
-                renderItem({ item }) // Assuming renderItem is a function that renders the item
+                renderItem({ item }) 
               )}
             </ScrollView>
-            <Text style={{ fontSize: 10, color: "white" }}>
+            <Text style={{ fontSize: 10, color: "white", fontFamily: 'Jost-SemiBold', }}>
               15k+ Participants
             </Text>
           </View>
@@ -286,14 +226,8 @@ const Contests = (props) => {
                     ? ["#8360C3", "#2EBF91"]
                     : ["transparent", "transparent"]
                 }
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderTopLeftRadius: 15,
-                  borderBottomLeftRadius: 15,
-                }}
+                style={[styles.contgrad,{  borderTopLeftRadius: 15,
+                  borderBottomLeftRadius: 15,}]}
                 start={{ x: 0, y: 0.5 }}
                 end={{ x: 1, y: 0.5 }}
               >
@@ -316,12 +250,7 @@ const Contests = (props) => {
                     ? ["#8360C3", "#2EBF91"]
                     : ["transparent", "transparent"]
                 }
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+                style={styles.contgrad}
                 start={{ x: 0, y: 0.5 }}
                 end={{ x: 1, y: 0.5 }}
               >
@@ -348,14 +277,8 @@ const Contests = (props) => {
                     ? ["#8360C3", "#2EBF91"]
                     : ["transparent", "transparent"]
                 }
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderTopRightRadius: 15,
-                  borderBottomRightRadius: 15,
-                }}
+                style={[styles.contgrad,{   borderTopRightRadius: 15,
+                  borderBottomRightRadius: 15,}]}
                 start={{ x: 0, y: 0.5 }}
                 end={{ x: 1, y: 0.5 }}
               >
@@ -480,7 +403,7 @@ const Contests = (props) => {
           {chunkArray(data, 2).map((row, index) => (
             <View style={styles.rowContainer} key={index}>
               {row.map((item) =>
-                renderImageItem({ item }) // Assuming renderImageItem is a function that renders the image item
+                renderImageItem({ item }) 
               )}
             </View>
           ))}
@@ -497,7 +420,7 @@ const Contests = (props) => {
         // modalTrue={modalTrue}
         // bttomModal={bttomModal}
       />
-      {/* <Footer title={'trophy'} /> */}
+     
     </SafeAreaView>
   );
 };
@@ -507,6 +430,13 @@ const styles = StyleSheet.create({
     // backgroundColor: '#fff',
     justifyContent: "center",
     alignItems: "center",
+  },
+  imgbgd:{
+    width: getWidth(2.2),
+    padding: 10,
+    height: 220,
+    marginBottom: 15,
+    justifyContent: "space-between",
   },
   searchBar: {
     flexDirection: "row",
@@ -552,19 +482,19 @@ const styles = StyleSheet.create({
   tabText: {
     color: "gray",
     fontSize: 18,
-    fontFamily: "Jost",
+    fontFamily: 'Jost-SemiBold',
     fontWeight: "400",
   },
   activeTabText: {
     color: "white",
     fontSize: 18,
-    fontFamily: "Jost",
+    fontFamily: 'Jost-SemiBold',
     fontWeight: "400",
   },
   activeItemText: {
     color: "#6F76B7",
     fontSize: 18,
-    fontFamily: "Jost",
+    fontFamily: 'Jost-SemiBold',
     fontWeight: "400",
     marginBottom: 10,
   },
@@ -596,6 +526,7 @@ const styles = StyleSheet.create({
   itemName: {
     fontWeight: "bold",
     marginTop: 5,
+    fontFamily: 'Jost-SemiBold',
   },
   followButton: {
     backgroundColor: "blue",
@@ -606,6 +537,7 @@ const styles = StyleSheet.create({
   },
   followButtonText: {
     color: "#fff",
+    fontFamily: 'Jost-SemiBold',
   },
   button: {
     flex: 1,
@@ -672,7 +604,7 @@ const styles = StyleSheet.create({
   clickableGradient: {
     // position: 'absolute',
 
-    height: 50, // Adjust height as needed
+    height: 40, // Adjust height as needed
 
     width: getWidth(1.1),
     justifyContent: "center",
@@ -732,5 +664,12 @@ const styles = StyleSheet.create({
   imageStyle: {
     borderRadius: 20, // Set the same border radius as the background image
   },
+contgrad:{
+  width: "100%",
+  height: "100%",
+  justifyContent: "center",
+  alignItems: "center",
+
+},
 });
 export default Contests;

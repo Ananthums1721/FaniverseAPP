@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, FlatList, StyleSheet, SafeAreaView,Animated } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image, FlatList, StyleSheet, SafeAreaView, Animated } from 'react-native';
 import images from '../../assets/Images';
 import { getHeight, getWidth } from '../../Theme/Constants';
 import LinearGradient from 'react-native-linear-gradient';
@@ -20,56 +20,56 @@ const Notifications = () => {
     const popIn = () => {
         setPop(true);
         Animated.timing(icon_1, {
-          toValue: 120,
-          duration: 900,
-          // duration: 500,
-    
-          useNativeDriver: false,
+            toValue: 120,
+            duration: 900,
+            // duration: 500,
+
+            useNativeDriver: false,
         }).start();
         Animated.timing(icon_2, {
-          toValue: 120,
-          duration: 700,
-          // duration: 500,
-    
-          useNativeDriver: false,
+            toValue: 120,
+            duration: 700,
+            // duration: 500,
+
+            useNativeDriver: false,
         }).start();
         Animated.timing(icon_3, {
-          toValue: 130,
-          duration: 500,
-          useNativeDriver: false,
+            toValue: 130,
+            duration: 500,
+            useNativeDriver: false,
         }).start();
         Animated.timing(icon_4, {
-          toValue: 130,
-          duration: 1100,
-          // duration: 500,
-    
-          useNativeDriver: false,
+            toValue: 130,
+            duration: 1100,
+            // duration: 500,
+
+            useNativeDriver: false,
         }).start();
-      };
-    
-      const popOut = () => {
+    };
+
+    const popOut = () => {
         setPop(false);
         Animated.timing(icon_1, {
-          toValue: 47,
-          duration: 500,
-          useNativeDriver: false,
+            toValue: 47,
+            duration: 500,
+            useNativeDriver: false,
         }).start();
         Animated.timing(icon_2, {
-          toValue: 40,
-          duration: 500,
-          useNativeDriver: false,
+            toValue: 40,
+            duration: 500,
+            useNativeDriver: false,
         }).start();
         Animated.timing(icon_3, {
-          toValue: 40,
-          duration: 500,
-          useNativeDriver: false,
+            toValue: 40,
+            duration: 500,
+            useNativeDriver: false,
         }).start();
         Animated.timing(icon_4, {
-          toValue: 50,
-          duration: 500,
-          useNativeDriver: false,
+            toValue: 50,
+            duration: 500,
+            useNativeDriver: false,
         }).start();
-      };
+    };
     const imageData = [
         { id: 1, imageUrl: images.Welcome_1 },
         { id: 2, imageUrl: images.Welcome_2 },
@@ -82,7 +82,7 @@ const Notifications = () => {
 
     const itemData = [
         { id: 1, name: 'Alex Linderson', followers: 'Virat Kohli commented on your flare : Thank you man❤️, Thanks for the support', image: images.ViratBanner },
-        { id: 2, name: 'Jacob Jones', followers: 'How are you today? Thank you man❤️, Thanks for the support' , image: images.Welcome_1 },
+        { id: 2, name: 'Jacob Jones', followers: 'How are you today? Thank you man❤️, Thanks for the support', image: images.Welcome_1 },
         { id: 3, name: 'Item Name 3', followers: ' How are you today? Thank you man❤️, Thanks for the support', image: images.Welcome_2 },
         { id: 4, name: 'Item Name 2', followers: 'Are you There? How are you today? Thank you man❤️, Thanks for the support', image: images.Welcome_1 },
         { id: 5, name: 'Item Name 3', followers: 'jj haiHow are you today? Thank you man❤️, Thanks for the support', image: images.Welcome_2 },
@@ -102,7 +102,7 @@ const Notifications = () => {
                 <Image source={item.image} style={styles.itemImage} />
             </View>
             <View style={{ width: getWidth(2), }}>
-                <Text> {item.followers}</Text>
+                <Text style={{ color: 'black',fontFamily: 'Jost-SemiBold', }}> {item.followers}</Text>
             </View>
             <View style={{ width: getWidth(6), justifyContent: 'center', alignItems: 'center' }}>
                 <Image source={item.image} style={styles.notImage} />
@@ -123,28 +123,29 @@ const Notifications = () => {
                     keyExtractor={(item) => item.id.toString()}
                     contentContainerStyle={styles.flatListContent}
                 />
-                     <PopoverMenu
-        pop={pop}
-        icon_1={icon_1}
-        icon_2={icon_2}
-        icon_3={icon_3}
-        icon_4={icon_4}
-        popIn={popIn}
-        popOut={popOut}
-        // modalTrue={modalTrue}
-        // bttomModal={bttomModal}
-      />
+                <PopoverMenu
+                    pop={pop}
+                    icon_1={icon_1}
+                    icon_2={icon_2}
+                    icon_3={icon_3}
+                    icon_4={icon_4}
+                    popIn={popIn}
+                    popOut={popOut}
+                // modalTrue={modalTrue}
+                // bttomModal={bttomModal}
+                />
             </View>
-       
+
         </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        height: getHeight(1.2),
+        height: getHeight(1.18),
         justifyContent: 'center',
-        alignSelf: 'center'
+        alignSelf: 'center',
+
 
     },
     searchBar: {
