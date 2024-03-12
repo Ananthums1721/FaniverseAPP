@@ -27,6 +27,7 @@ import LeaderBoard from "../Screens/Contests/LeaderBoard";
 import Reels from "../Screens/Reels/Reels";
 import SuperHugs from "../Screens/SuperHugs/SuperHugs";
 import ContestDetailsWeek1 from "../Screens/Contests/ContestDetailsWeek1";
+import TabNavigator from "./TabNavigator";
 
 const Stack = createStackNavigator();
 if (!__DEV__) {
@@ -35,8 +36,11 @@ if (!__DEV__) {
 const HomeStack = () => {
   return (
     // <NavigationContainer>
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="SplashScreen" component={SplashScreen} />
+    <Stack.Navigator
+      initialRouteName="tabs"
+      screenOptions={{ headerShown: false }}
+    >
+      {/* <Stack.Screen name="SplashScreen" component={SplashScreen} /> */}
       {/* <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       <Stack.Screen name="GetStarted" component={GetStarted} />
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
@@ -51,17 +55,22 @@ const HomeStack = () => {
       <Stack.Screen name="InterestSelection" component={InterestSelection} />
       <Stack.Screen name="SuccessScreen" component={SuccessScreen} /> */}
       {/* <Stack.Screen name="Home" component={Home} /> */}
+      <Stack.Screen
+        name="tabs"
+        options={{ headerShown: false }}
+        component={TabNavigator}
+      />
       <Stack.Screen name="DiscoverTrends" component={DiscoverTrends} />
       <Stack.Screen name="DiscoverSearch" component={DiscoverSearch} />
       <Stack.Screen name="Inbox" component={Inbox} />
       <Stack.Screen name="Profile" component={Profile} />
       <Stack.Screen name="FanWall" component={FanWall} />
       <Stack.Screen name="Followers" component={Followers} />
-      {/* <Stack.Screen name="Notifications" component={Notifications} /> */}
-      {/* <Stack.Screen name="Contests" component={Contests} /> */}
+      <Stack.Screen name="Notifications" component={Notifications} />
+      <Stack.Screen name="Contests" component={Contests} />
       <Stack.Screen name="ContestDetails" component={ContestDetails} />
       <Stack.Screen name="LeaderBoard" component={LeaderBoard} />
-      {/* <Stack.Screen name="Reels" component={Reels} /> */}
+      <Stack.Screen name="Reels" component={Reels} />
       <Stack.Screen name="SuperHugs" component={SuperHugs} />
       <Stack.Screen
         name="ContestDetailsWeek1"

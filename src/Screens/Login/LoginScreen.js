@@ -26,7 +26,7 @@ var windowHeight = Dimensions.get("window").height; //full height
 
 const LoginScreen = (props) => {
   const navigation = useNavigation();
-  const [email, changeemail] = useState("abcdef@gmail.com");
+  const [email, changeemail] = useState("ananthu@gmail.com");
   const [checkEmail, changecheckEmail] = useState("");
   const [checkPassword, changecheckPassword] = useState("");
   const [password, changepassword] = useState("1234567");
@@ -75,7 +75,7 @@ const LoginScreen = (props) => {
       changecheckPassword("Password must be at least 6 characters long"); // Set error message
       // alert('Please enter password'); // Set error message
     } else {
-      navigation.replace("tabs");
+      navigation.replace("home");
       // local.storeLogin(true);
     }
   };
@@ -93,15 +93,15 @@ const LoginScreen = (props) => {
       }
     });
   }, []);
-  useEffect(() => {
-    const unsubscribe = navigation.addListener("focus", () => {
-      changeemail("");
-      changepassword("");
-      //Put your Data loading function here instead of my loadData()
-    });
+  // useEffect(() => {
+  //   const unsubscribe = navigation.addListener("focus", () => {
+  //     changeemail("");
+  //     changepassword("");
+  //     //Put your Data loading function here instead of my loadData()
+  //   });
 
-    return unsubscribe;
-  }, [navigation]);
+  //   return unsubscribe;
+  // }, [navigation]);
 
   return (
     <View style={styles.container}>

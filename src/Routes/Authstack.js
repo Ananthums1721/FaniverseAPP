@@ -1,7 +1,5 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { useState, useEffect } from "react";
-import local from "../Storage/Local";
 import LoginScreen from "../Screens/Login/LoginScreen";
 import WelcomeScreen from "../Screens/WelcomScreen/WelcomeScreen";
 import TabNavigator from "./TabNavigator";
@@ -14,21 +12,11 @@ import DOBScreen from "../Screens/StartUpQuestions/DOBScreen";
 import InterestSelection from "../Screens/StartUpQuestions/InterestSelection";
 import SuccessScreen from "../Screens/StartUpQuestions/SuccessScreen";
 import SplashScreen from "../Screens/Splash/SplashScreen";
+import HomeStack from "./HomeStack";
 
 const Stack = createStackNavigator();
 
 const Authstack = () => {
-  // const [token, setToken] = useState(null);
-
-  //   useEffect(() => {
-  //     const getToken = async () => {
-  //       const loginData = await local.getLogin();
-  //       console.log(loginData, "login data");
-  //     };
-
-  //     getToken();
-  //   }, []);
-
   return (
     <Stack.Navigator
       initialRouteName="splash"
@@ -36,7 +24,6 @@ const Authstack = () => {
         headerTitleAlign: "center",
         headerLeftLabelVisible: false,
         headerTintColor: "black",
-        // headerTitleStyle: {...Typography.largeTextBold},
       }}
     >
       <Stack.Screen
@@ -96,9 +83,9 @@ const Authstack = () => {
         component={SuccessScreen}
       />
       <Stack.Screen
-        name="tabs"
+        name="home"
         options={{ headerShown: false }}
-        component={TabNavigator}
+        component={HomeStack}
       />
     </Stack.Navigator>
   );
