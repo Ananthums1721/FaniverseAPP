@@ -1,19 +1,6 @@
 import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import LoginScreen from "../Screens/Login/LoginScreen";
-import Home from "../Screens/Home/Home";
-import SplashScreen from "../Screens/Splash/SplashScreen";
-import WelcomeScreen from "../Screens/WelcomScreen/WelcomeScreen";
-import GetStarted from "../Screens/GetStarted/GetStarted";
-import SignUpScreen from "../Screens/SignUp/SignUpScreen";
-import OtpScreen from "../Screens/OtpScreen/OtpScreen";
-import CreatePasswordScreen from "../Screens/CreatePassword/CreatePasswordScreen";
-import GenderScreen from "../Screens/StartUpQuestions/GenderScreen";
-import DOBScreen from "../Screens/StartUpQuestions/DOBScreen";
-import InterestSelection from "../Screens/StartUpQuestions/InterestSelection";
-import SuccessScreen from "../Screens/StartUpQuestions/SuccessScreen";
 import DiscoverTrends from "../Screens/Discover/DiscoverTrends";
 import DiscoverSearch from "../Screens/Discover/DiscoverSearch";
 import Inbox from "../Screens/Inbox/Inbox";
@@ -35,31 +22,11 @@ if (!__DEV__) {
 }
 const HomeStack = () => {
   return (
-    // <NavigationContainer>
     <Stack.Navigator
       initialRouteName="tabs"
       screenOptions={{ headerShown: false }}
     >
-      {/* <Stack.Screen name="SplashScreen" component={SplashScreen} /> */}
-      {/* <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-      <Stack.Screen name="GetStarted" component={GetStarted} />
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
-      <Stack.Screen name="OtpScreen" component={OtpScreen} />
-      <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-      <Stack.Screen
-        name="CreatePasswordScreen"
-        component={CreatePasswordScreen}
-      />
-      <Stack.Screen name="GenderScreen" component={GenderScreen} />
-      <Stack.Screen name="DOBScreen" component={DOBScreen} />
-      <Stack.Screen name="InterestSelection" component={InterestSelection} />
-      <Stack.Screen name="SuccessScreen" component={SuccessScreen} /> */}
-      {/* <Stack.Screen name="Home" component={Home} /> */}
-      <Stack.Screen
-        name="tabs"
-        options={{ headerShown: false }}
-        component={TabNavigator}
-      />
+      <Stack.Screen name="tabs" component={TabNavigator} />
       <Stack.Screen name="DiscoverTrends" component={DiscoverTrends} />
       <Stack.Screen name="DiscoverSearch" component={DiscoverSearch} />
       <Stack.Screen name="Inbox" component={Inbox} />
@@ -77,7 +44,6 @@ const HomeStack = () => {
         component={ContestDetailsWeek1}
       />
     </Stack.Navigator>
-    // </NavigationContainer>
   );
 };
 export default HomeStack;

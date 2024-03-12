@@ -3,21 +3,15 @@ import {
   View,
   StyleSheet,
   Text,
-  SafeAreaView,
   Dimensions,
   Image,
-  TouchableOpacity,
-  ActivityIndicator,
   ImageBackground,
 } from "react-native";
 
 import TextInputBox from "../../Components/TextInputBox";
 import CommonButton from "../../Components/CommonButton";
-import { connect } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
-import { setName, setDarkmode } from "../../redux/action";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import local from "../../Storage/Local";
 import images from "../../assets/Images";
 import { getHeight, getWidth } from "../../Theme/Constants";
 

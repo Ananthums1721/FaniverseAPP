@@ -23,22 +23,6 @@ import HomeScreenModal from "../Components/HomeScreenModal";
 const Tab = createBottomTabNavigator();
 
 function TabNavigator() {
-  // const CustomFaniverseButton = ({ children, onPress }) => {
-  //   <TouchableOpacity
-  //     style={{
-  //       top: -30,
-  //       justifyContent: "center",
-  //       alignItems: "center",
-  //       elevation: 5,
-  //     }}
-  //     onPress={onPress}
-  //   >
-  //     <View style={{ width: 70, height: 70, borderRadius: 35 }}>
-  //       {children}
-  //     </View>
-  //   </TouchableOpacity>;
-  // };
-
   return (
     <>
       <Tab.Navigator
@@ -51,6 +35,7 @@ function TabNavigator() {
           tabBarActiveBackgroundColor: Colors.white,
           tabBarInactiveBackgroundColor: Colors.white,
           tabBarLabel: "",
+          tabBarStyle: { paddingVertical: 12 },
         }}
       >
         <Tab.Screen
@@ -86,49 +71,7 @@ function TabNavigator() {
             tabBarHideOnKeyboard: true,
           }}
         />
-        <Tab.Screen
-          name="modal"
-          component={HomeScreenModal}
-          options={{
-            title: "Profile",
-            headerShown: false,
-            tabBarIcon: ({ color, focused }) => {
-              //   if (focused) {
-              //     return (
-              //       <TouchableOpacity
-              //         onPress={() => setModalTrue(true)}
-              //         style={{ position: "relative", bottom: 20 }}
-              //       >
-              //         <CloseIconSVG height={60} width={60} color={color} />
-              //       </TouchableOpacity>
-              //     );
-              //   }
-              //   return (
-              //     <TouchableOpacity style={{ position: "relative", bottom: 20 }}>
-              //       <FaniverseIconSVG height={60} width={60} color={color} />
-              //     </TouchableOpacity>
-              //   );
-              // },
-              if (focused) {
-                return (
-                  <TouchableOpacity
-                    style={{ position: "relative", bottom: 20 }}
-                  >
-                    {/* <CloseIconSVG height={60} width={60} color={color} /> */}
-                  </TouchableOpacity>
-                );
-              }
-              return (
-                <TouchableOpacity style={{ position: "relative", bottom: 30 }}>
-                  {/* <FaniverseIconSVG height={2} width={2} color={color} /> */}
-                </TouchableOpacity>
-              );
-            },
 
-            unmountOnBlur: true,
-            tabBarHideOnKeyboard: true,
-          }}
-        />
         <Tab.Screen
           name="Contests"
           component={Contests}

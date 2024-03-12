@@ -1,41 +1,19 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
   StyleSheet,
-  TouchableOpacity,
   ScrollView,
   SafeAreaView,
   Dimensions,
-  FlatList,
-  Image,
-  ImageBackground,
-  BackHandler,
   Animated,
 } from "react-native";
-import { connect } from "react-redux";
-import { setApiData } from "../../redux/action";
-import CommonButton from "../../Components/CommonButton";
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import HomeHeader from "../../Components/HomeHeader";
 import HorizontalList from "../../Components/HorizontalList";
 import images from "../../assets/Images";
 import SwiperComponent from "../../Components/SwiperComponent";
 import ListItem from "../../Components/ListItem";
-import Footer from "../../Components/Footer";
-import FaniverseIconSVG from "../../assets/svg/FaniverseIconSVG";
 import { getHeight, getWidth } from "../../Theme/Constants";
-import HomeScreenModal from "../../Components/HomeScreenModal";
-import Icon from "react-native-vector-icons/FontAwesome";
-import StorySVG from "../../assets/svg/StorySVG";
-import LiveSVG from "../../assets/svg/LiveSVG";
-import FilimSVG from "../../assets/svg/FilimSVG";
-import ImageSVG from "../../assets/svg/ImageSVG";
-import SubtractSVG from "../../assets/svg/SubtractSVG";
-
-import LinearGradient from "react-native-linear-gradient";
-
 import PopoverMenu from "../../Components/PopoverMenu";
 
 const axios = require("axios").default;
@@ -135,17 +113,6 @@ const Home = (props) => {
     alert("upload");
   };
 
-  // const [icon_1] = useState(new Animated.Value(40));
-  // const [icon_2] = useState(new Animated.Value(40));
-  // const [icon_3] = useState(new Animated.Value(40));
-  // const [icon_4] = useState(new Animated.Value(40));
-
-  // const [pop, setPop] = useState(false);
-
-  console.log(pop, "----------");
-
-
-
   const popIn = () => {
     setPop(true);
     Animated.timing(icon_1, {
@@ -202,8 +169,6 @@ const Home = (props) => {
 
   const buttonColors = ["#8360C3", "#2EBF91"];
 
-  // const [modalTrue, setModalTrue] = useState(false);
-
   const bttomModal = () => {
     setModalTrue(!modalTrue);
   };
@@ -234,12 +199,7 @@ const Home = (props) => {
         icon_4={icon_4}
         popIn={popIn}
         popOut={popOut}
-        // modalTrue={modalTrue}
-        // bttomModal={bttomModal}
       />
-
-      {/* <Footer title={"home"} /> */}
-      {/* <HomeScreenModal onPress={modalTrue} /> */}
     </SafeAreaView>
   );
 };

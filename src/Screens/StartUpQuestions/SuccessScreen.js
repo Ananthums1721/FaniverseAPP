@@ -28,7 +28,7 @@ const SuccessScreen = (props) => {
       </View>
       <View style={styles.buttonContainer}>
         <CommonButton
-          onPress={() => navigation.replace("tabs")}
+          onPress={() => navigation.replace("home")}
           color={["#8360C3", "#2EBF91"]}
           title={"Take Me In"}
           width={getHeight(2.3)}

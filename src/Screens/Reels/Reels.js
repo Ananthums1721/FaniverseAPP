@@ -6,7 +6,7 @@ import {
   FlatList,
   Image,
   Dimensions,
-  Animated
+  Animated,
 } from "react-native";
 import images from "../../assets/Images";
 import { getHeight, getWidth } from "../../Theme/Constants";
@@ -87,7 +87,7 @@ const Reels = () => {
   };
   const renderItem = ({ item }) => (
     <View style={styles.reelItem}>
-      <Image source={item.imageUrl} style={styles.image} />
+      <Image source={item.imageUrl} style={styles.imageContainer} />
       <View onPress={toggleLike} style={styles.likeButton}>
         <View
           style={{
@@ -154,12 +154,12 @@ const Reels = () => {
     <View style={styles.container}>
       <FlatList
         data={data}
+        showsVerticalScrollIndicator={false}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        // horizontal
-        pagingEnabled
+        pagingEnabled={true}
       />
-        <PopoverMenu
+      <PopoverMenu
         pop={pop}
         icon_1={icon_1}
         icon_2={icon_2}
@@ -181,14 +181,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   reelItem: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    width: getWidth(1),
+    height: getHeight(1),
+    // flex: 1,
+    backgroundColor: "pink",
+    borderColor: "black",
+    borderBottomWidth: 1,
   },
-  image: {
-    flex: 1,
+  imageContainer: {
+    // flex: 1,
     resizeMode: "cover",
-    width: null,
-    height: null,
+    width: "100%",
+    height: "100%",
   },
   likeButton: {
     position: "absolute",
@@ -196,7 +200,7 @@ const styles = StyleSheet.create({
     bottom: 155,
 
     zIndex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    // backgroundColor: "rgba(0, 0, 0, 0.5)",
     height: 300,
     alignSelf: "center",
     width: 48,
@@ -204,7 +208,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 25,
 
-    // flexDirection:'row',
     alignItems: "",
   },
   likeIcon: {

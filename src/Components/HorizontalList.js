@@ -1,6 +1,14 @@
-import React from 'react';
-import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
-import images from '../assets/Images';
+import React from "react";
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
+import images from "../assets/Images";
 
 const HorizontalList = ({ data, onPressStatusUpload }) => {
   const renderItem = ({ item }) => (
@@ -15,19 +23,29 @@ const HorizontalList = ({ data, onPressStatusUpload }) => {
       <FlatList
         data={data}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ paddingHorizontal: 10, paddingLeft: 90 ,}} 
+        contentContainerStyle={{ paddingHorizontal: 10, paddingLeft: 90 }}
       />
       {/* Status Upload Icon */}
-      <TouchableOpacity style={styles.statusUploadIcon} onPress={onPressStatusUpload}>
-        <TouchableOpacity onPress={onPressStatusUpload} style={styles.outerview}>
-        <ImageBackground source={images.Profile} resizeMode="cover" style={styles.statusUploadBackground}>
-          <Image style={styles.logo} source={images.PlusCircle} />
-        </ImageBackground>
+      <TouchableOpacity
+        style={styles.statusUploadIcon}
+        onPress={onPressStatusUpload}
+      >
+        <TouchableOpacity
+          onPress={onPressStatusUpload}
+          style={styles.outerview}
+        >
+          <ImageBackground
+            source={images.Profile}
+            resizeMode="cover"
+            style={styles.statusUploadBackground}
+          >
+            <Image style={styles.logo} source={images.PlusCircle} />
+          </ImageBackground>
         </TouchableOpacity>
-   
+
         <Text style={styles.title}>my story</Text>
       </TouchableOpacity>
     </View>
@@ -36,13 +54,13 @@ const HorizontalList = ({ data, onPressStatusUpload }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 10,
   },
   itemContainer: {
     marginRight: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   image: {
     width: 70,
@@ -51,38 +69,40 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop: 5,
-    textAlign: 'center',
-    color:'black'
+    textAlign: "center",
+    color: "black",
   },
   statusUploadIcon: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
     bottom: 2,
-    backgroundColor:'white'
+    backgroundColor: "white",
   },
   statusUploadBackground: {
     height: 70,
     width: 70,
-   
+
     borderRadius: 35, // half of height/width for perfect circle
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.3)', // Adjust opacity or color as needed
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.3)", // Adjust opacity or color as needed
   },
   logo: {
     width: 30,
     height: 30,
-    position: 'absolute',
+    position: "absolute",
     top: 40,
     right: 15,
   },
-  outerview:{  height: 75,
+  outerview: {
+    height: 75,
     width: 75,
-  marginLeft:5,
+    marginLeft: 5,
     borderRadius: 40, // half of height/width for perfect circle
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#7E65C0'}
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#7E65C0",
+  },
 });
 
 export default HorizontalList;

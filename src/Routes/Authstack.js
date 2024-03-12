@@ -2,7 +2,6 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "../Screens/Login/LoginScreen";
 import WelcomeScreen from "../Screens/WelcomScreen/WelcomeScreen";
-import TabNavigator from "./TabNavigator";
 import GetStarted from "../Screens/GetStarted/GetStarted";
 import OtpScreen from "../Screens/OtpScreen/OtpScreen";
 import SignUpScreen from "../Screens/SignUp/SignUpScreen";
