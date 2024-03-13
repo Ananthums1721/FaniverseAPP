@@ -8,22 +8,14 @@ import {
   SafeAreaView,
   Dimensions,
   Animated,
-  FlatList,
   Image,
   ImageBackground,
-  BackHandler,
 } from "react-native";
-import { connect } from "react-redux";
-import { setApiData } from "../../redux/action";
 
 import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "../../Components/Header";
-import HorizontalList from "../../Components/HorizontalList";
 import images from "../../assets/Images";
 import SwiperComponent from "../../Components/SwiperComponent";
-
-import Footer from "../../Components/Footer";
 import LinearGradient from "react-native-linear-gradient";
 import { getHeight, getWidth } from "../../Theme/Constants";
 import PopoverMenu from "../../Components/PopoverMenu";
@@ -113,7 +105,7 @@ const Contests = (props) => {
 
     // Add more items as needed
   ];
- 
+
   const handleTabPress = (tabIndex) => {
     setSelectedTab(tabIndex);
   };
@@ -147,7 +139,6 @@ const Contests = (props) => {
         imageStyle={styles.imageStyle}
         style={styles.imgbgd}
       >
- 
         <View
           style={{
             width: 80,
@@ -158,11 +149,13 @@ const Contests = (props) => {
             alignItems: "center",
           }}
         >
-          <Text style={{ color: "white" , fontFamily: 'Jost-SemiBold',}}>2nd week</Text>
+          <Text style={{ color: "white", fontFamily: "Jost-SemiBold" }}>
+            2nd week
+          </Text>
         </View>
         <View>
-          <Text style={{ color: "white", fontFamily: 'Jost-SemiBold', }}>
-            Kohli Chronicles: Unleash Your Inner Champion 
+          <Text style={{ color: "white", fontFamily: "Jost-SemiBold" }}>
+            Kohli Chronicles: Unleash Your Inner Champion
           </Text>
           <View
             style={{
@@ -181,11 +174,15 @@ const Contests = (props) => {
                 width: getWidth(4.5),
               }}
             >
-              {swiperdata.map((item) =>
-                renderItem({ item }) 
-              )}
+              {swiperdata.map((item) => renderItem({ item }))}
             </ScrollView>
-            <Text style={{ fontSize: 10, color: "white", fontFamily: 'Jost-SemiBold', }}>
+            <Text
+              style={{
+                fontSize: 10,
+                color: "white",
+                fontFamily: "Jost-SemiBold",
+              }}
+            >
               15k+ Participants
             </Text>
           </View>
@@ -226,8 +223,10 @@ const Contests = (props) => {
                     ? ["#8360C3", "#2EBF91"]
                     : ["transparent", "transparent"]
                 }
-                style={[styles.contgrad,{  borderTopLeftRadius: 15,
-                  borderBottomLeftRadius: 15,}]}
+                style={[
+                  styles.contgrad,
+                  { borderTopLeftRadius: 15, borderBottomLeftRadius: 15 },
+                ]}
                 start={{ x: 0, y: 0.5 }}
                 end={{ x: 1, y: 0.5 }}
               >
@@ -277,8 +276,10 @@ const Contests = (props) => {
                     ? ["#8360C3", "#2EBF91"]
                     : ["transparent", "transparent"]
                 }
-                style={[styles.contgrad,{   borderTopRightRadius: 15,
-                  borderBottomRightRadius: 15,}]}
+                style={[
+                  styles.contgrad,
+                  { borderTopRightRadius: 15, borderBottomRightRadius: 15 },
+                ]}
                 start={{ x: 0, y: 0.5 }}
                 end={{ x: 1, y: 0.5 }}
               >
@@ -294,7 +295,7 @@ const Contests = (props) => {
           </TouchableOpacity>
         </View>
 
-        <View style={{ height: 200, marginTop: 10 }}>
+        <View style={{ height: 200, marginTop: 5 }}>
           <SwiperComponent data={swiperdata} />
         </View>
         <TouchableOpacity
@@ -402,9 +403,7 @@ const Contests = (props) => {
         <ScrollView contentContainerStyle={styles.flatListContent}>
           {chunkArray(data, 2).map((row, index) => (
             <View style={styles.rowContainer} key={index}>
-              {row.map((item) =>
-                renderImageItem({ item }) 
-              )}
+              {row.map((item) => renderImageItem({ item }))}
             </View>
           ))}
         </ScrollView>
@@ -420,18 +419,15 @@ const Contests = (props) => {
         // modalTrue={modalTrue}
         // bttomModal={bttomModal}
       />
-     
     </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // backgroundColor: '#fff',
     justifyContent: "center",
     alignItems: "center",
   },
-  imgbgd:{
+  imgbgd: {
     width: getWidth(2.2),
     padding: 10,
     height: 220,
@@ -445,11 +441,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     marginTop: 20,
     alignItems: "center",
-    // height:40
   },
   input: {
-    // borderWidth: 1,
-    // borderColor: 'gray',
     padding: 10,
   },
   tabs: {
@@ -482,19 +475,19 @@ const styles = StyleSheet.create({
   tabText: {
     color: "gray",
     fontSize: 18,
-    fontFamily: 'Jost-SemiBold',
+    fontFamily: "Jost-SemiBold",
     fontWeight: "400",
   },
   activeTabText: {
     color: "white",
     fontSize: 18,
-    fontFamily: 'Jost-SemiBold',
+    fontFamily: "Jost-SemiBold",
     fontWeight: "400",
   },
   activeItemText: {
     color: "#6F76B7",
     fontSize: 18,
-    fontFamily: 'Jost-SemiBold',
+    fontFamily: "Jost-SemiBold",
     fontWeight: "400",
     marginBottom: 10,
   },
@@ -526,7 +519,7 @@ const styles = StyleSheet.create({
   itemName: {
     fontWeight: "bold",
     marginTop: 5,
-    fontFamily: 'Jost-SemiBold',
+    fontFamily: "Jost-SemiBold",
   },
   followButton: {
     backgroundColor: "blue",
@@ -537,7 +530,7 @@ const styles = StyleSheet.create({
   },
   followButtonText: {
     color: "#fff",
-    fontFamily: 'Jost-SemiBold',
+    fontFamily: "Jost-SemiBold",
   },
   button: {
     flex: 1,
@@ -602,10 +595,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   clickableGradient: {
-    // position: 'absolute',
-
-    height: 40, // Adjust height as needed
-
+    height: 33, // Adjust height as needed
     width: getWidth(1.1),
     justifyContent: "center",
     alignItems: "center",
@@ -613,10 +603,8 @@ const styles = StyleSheet.create({
     borderRadius: 19,
     flexDirection: "row",
     backgroundColor: "white",
-    // borderWidth:1,
-    // borderColor:'gray',
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 1,
+    marginBottom: 10,
   },
   gradient: {
     position: "absolute",
@@ -649,8 +637,8 @@ const styles = StyleSheet.create({
     // backgroundColor: 'white',
     // borderWidth:1,
     // borderColor:'gray',
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: -10,
+    marginBottom: 10,
   },
   bottumitem: {
     flex: 1,
@@ -664,12 +652,11 @@ const styles = StyleSheet.create({
   imageStyle: {
     borderRadius: 20, // Set the same border radius as the background image
   },
-contgrad:{
-  width: "100%",
-  height: "100%",
-  justifyContent: "center",
-  alignItems: "center",
-
-},
+  contgrad: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 export default Contests;
