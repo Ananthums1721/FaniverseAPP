@@ -95,7 +95,6 @@ const Contests = (props) => {
     { id: "5", title: "Item 5", imageUrl: images.Welcome_2 },
     { id: "6", title: "Item 8", imageUrl: images.Welcome_3 },
     { id: "7", title: "Item 7", imageUrl: images.Welcome_3 },
-    // Add more items as needed
   ];
   const swiperdata = [
     { id: "1", title: "Item 1", imageUrl: images.ViratBanner },
