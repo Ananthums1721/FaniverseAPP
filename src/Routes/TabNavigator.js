@@ -14,7 +14,7 @@ import ContestFSVG from "../assets/svg/ContestFSVG";
 import ContestTSVG from "../assets/svg/ContestTSVG";
 import ReelsTSVG from "../assets/svg/ReelsTSVG";
 import HomeTSVG from "../assets/svg/HomeTSVG";
-import CloseIconSVG from "../assets/svg/CloseIconSVG";
+import NotificationTSVG from "../assets/svg/NotificationTSVG";
 import FaniverseIconSVG from "../assets/svg/FaniverseIconSVG";
 import { Button, Modal, Touchable, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -94,7 +94,12 @@ function TabNavigator() {
           options={{
             title: "Notifications",
             headerShown: false,
-            tabBarIcon: ({ color }) => {
+            tabBarIcon: ({ color, focused }) => {
+              if (focused) {
+                return (
+                  <NotificationTSVG height={40} width={40} color={color} />
+                );
+              }
               return <NotificationFSVG height={40} width={40} color={color} />;
             },
             unmountOnBlur: true,

@@ -157,7 +157,8 @@ const Reels = () => {
         showsVerticalScrollIndicator={false}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        pagingEnabled={true}
+        // horizontal
+        pagingEnabled
       />
       <PopoverMenu
         pop={pop}

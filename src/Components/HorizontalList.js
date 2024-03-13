@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     position: "absolute",
-    top: 40,
-    right: 15,
+    top: 55,
+    right: 20,
   },
   outerview: {
     height: 75,
