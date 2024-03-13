@@ -102,8 +102,6 @@ const Contests = (props) => {
     { id: "2", title: "Item 2", imageUrl: images.ViratBanner },
     { id: "3", title: "Item 4", imageUrl: images.ViratBanner },
     { id: "4", title: "Item 6", imageUrl: images.Welcome_1 },
-
-    // Add more items as needed
   ];
 
   const handleTabPress = (tabIndex) => {
