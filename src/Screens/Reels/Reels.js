@@ -7,11 +7,13 @@ import {
   Image,
   Dimensions,
   Animated,
+  TouchableOpacity
 } from "react-native";
 import images from "../../assets/Images";
 import { getHeight, getWidth } from "../../Theme/Constants";
 import Footer from "../../Components/Footer";
 import PopoverMenu from "../../Components/PopoverMenu";
+import CommentPopUp from "../../Components/CommentPopUp";
 
 const Reels = () => {
   const data = [
@@ -27,6 +29,7 @@ const Reels = () => {
   const [icon_3] = useState(new Animated.Value(40));
   const [icon_4] = useState(new Animated.Value(40));
   const [modalTrue, setModalTrue] = useState(false);
+  const [commentModalVisible, setCommentModalVisible] = useState(false);
 
   const toggleLike = () => {
     setLiked(!liked);
@@ -85,6 +88,11 @@ const Reels = () => {
       useNativeDriver: false,
     }).start();
   };
+
+  const toggleCommentModal = () => {
+    setCommentModalVisible(!commentModalVisible); // Toggle CommentPopUp visibility
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.reelItem}>
       <Image source={item.imageUrl} style={styles.imageContainer} />
@@ -112,11 +120,14 @@ const Reels = () => {
             alignItems: "center",
           }}
         >
-          <Image
+           <TouchableOpacity onPress={toggleCommentModal}>
+           <Image
             source={liked ? images.Comment : images.Comment}
             style={styles.likeIcon}
           />
           <Text style={styles.liketext}>386</Text>
+           </TouchableOpacity>
+        
         </View>
         <View
           style={{
@@ -171,6 +182,7 @@ const Reels = () => {
         // modalTrue={modalTrue}
         // bttomModal={bttomModal}
       />
+        <CommentPopUp isVisible={commentModalVisible} toggleModal={toggleCommentModal} />
       {/* <Footer title={'reel'} /> */}
     </View>
   );

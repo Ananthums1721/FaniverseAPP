@@ -6,10 +6,10 @@ import DiscoverItems from '../../Components/DiscoverItems';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from '../../Components/Header';
 import { ScrollView } from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 const Followers = () => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTab, setSelectedTab] = useState(0); // 0 for images tab, 1 for items tab
 
@@ -51,55 +51,54 @@ const Followers = () => {
   const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.itemContainer}>
       <Image source={item.image} style={styles.itemImage} />
-      <View style={{marginLeft:18}}>
-      {/* <Text style={styles.itemName}>{item.name}</Text> */}
-      <View style={{flexDirection:'row',justifyContent:'center',alignItems:'baseline'}}>
-      <Text style={styles.itemName}>{item.name}</Text>
-      <Image source={images.PurpleTick} style={{width:20,height:20,marginLeft:15}} />
+      <View style={{ marginLeft: 18 }}>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'baseline' }}>
+          <Text style={styles.itemName}>{item.name}</Text>
+          <Image source={images.PurpleTick} style={{ width: 20, height: 20, marginLeft: 15 }} />
+        </View>
+        <Text> {item.followers} Followers</Text>
       </View>
-      <Text> {item.followers} Followers</Text>
-      </View>
-     
-      {/* <TouchableOpacity style={styles.followButton}>
-        <Text style={styles.followButtonText}>Follow</Text>
-      </TouchableOpacity> */}
+
     </TouchableOpacity>
   );
   return (
     <SafeAreaView>
-        <Header title="Follow" />
-  
-    <View style={styles.container}>
-      {/* Search Bar */}
-     
-     
-   
-      {/* Tabs */}
-      <View style={styles.tabs}>
-        <TouchableOpacity onPress={() => handleTabPress(0)} style={[styles.tab, selectedTab === 0 && styles.activeTab]}>
-          {/* <Text style={selectedTab === 0 ? styles.activeTabText : styles.tabText}>Images</Text> */}
-          <LinearGradient
-            colors={selectedTab === 0 ? ['#8360C3', '#2EBF91'] : ['transparent', 'transparent']}
-            style={{width:'100%',height:40,justifyContent:'center',alignItems:'center',borderTopLeftRadius:15,borderBottomLeftRadius:15}}
-            start={{x: 0, y: 0.5}} 
-            end={{x: 1, y: 0.5}}
-          >
-            <Text style={selectedTab === 0 ? styles.activeTabText : styles.tabText}>Followers</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleTabPress(1)} style={[styles.tab, selectedTab === 1 && styles.activeTab]}>
-          {/* <Text style={selectedTab === 1 ? styles.activeTabText : styles.tabText}>Items</Text> */}
-          <LinearGradient
-            colors={selectedTab === 1 ? ['#8360C3', '#2EBF91'] : ['transparent', 'transparent']}
-            style={{ width:'100%',height:40,justifyContent:'center',alignItems:'center',borderTopRightRadius:15,borderBottomRightRadius:15}}
-            start={{x: 0, y: 0.5}} 
-            end={{x: 1, y: 0.5}}
-          >
-            <Text style={selectedTab === 1 ? styles.activeTabText : styles.tabText}>Following</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.searchBar}>
+      <Header title="Follow" />
+
+      <View style={styles.container}>
+
+        <View style={styles.tabs}>
+          <TouchableOpacity onPress={() => handleTabPress(0)} style={[styles.tab, selectedTab === 0 && styles.activeTab]}>
+
+            <LinearGradient
+              colors={selectedTab === 0 ? ['#8360C3', '#2EBF91'] : ['transparent', 'transparent']}
+              style={{ width: '100%', height: 40, justifyContent: 'center', alignItems: 'center', flexDirection: 'row', borderTopLeftRadius: 15, borderBottomLeftRadius: 15 }}
+              start={{ x: 0, y: 0.5 }}
+              end={{ x: 1, y: 0.5 }}
+            >
+              <Text style={selectedTab === 0 ? styles.activeTabText : styles.tabText}>Followers</Text>
+              <View style={styles.followview}>
+                <Text style={selectedTab === 0 ? styles.activefollowText : styles.followtabText}>230</Text>
+              </View>
+            </LinearGradient>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => handleTabPress(1)} style={[styles.tab, selectedTab === 1 && styles.activeTab]}>
+
+            <LinearGradient
+              colors={selectedTab === 1 ? ['#8360C3', '#2EBF91'] : ['transparent', 'transparent']}
+              style={{ width: '100%', height: 40, justifyContent: 'center', alignItems: 'center', flexDirection: 'row', borderTopRightRadius: 15, borderBottomRightRadius: 15 }}
+              start={{ x: 0, y: 0.5 }}
+              end={{ x: 1, y: 0.5 }}
+            >
+              <Text style={selectedTab === 1 ? styles.activeTabText : styles.tabText}>Following</Text>
+              <View style={styles.followview}>
+                <Text style={selectedTab === 1 ? styles.activefollowText : styles.followtabText}>230</Text>
+              </View>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.searchBar}>
           <Image source={images.GraySearch} style={{ height: 30, width: 30, marginLeft: 10 }} />
           <TextInput
             style={styles.input}
@@ -107,96 +106,145 @@ const Followers = () => {
             value={searchQuery}
             onChangeText={(text) => setSearchQuery(text)}
           />
-          <TouchableOpacity onPress={()=>setSearchQuery('')}>
-          <Image source={images.Cross} style={{ height: 30, width: 30, marginLeft: 10 }} />
+          <TouchableOpacity onPress={() => setSearchQuery('')}>
+            <Image source={images.Cross} style={{ height: 30, width: 30, marginLeft: 10 }} />
           </TouchableOpacity>
-        
+
         </View>
-        <View style={{height:getHeight(1.5)}}>
-        <FlatList
-          data={filteredItems}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id.toString()}
-          contentContainerStyle={styles.flatListContent}
-        />
+        <View style={{ height: getHeight(1.5) }}>
+          <FlatList
+            data={filteredItems}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id.toString()}
+            contentContainerStyle={styles.flatListContent}
+          />
         </View>
-      
-    </View>
+
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-    container: {
-      justifyContent: 'center',
-      alignItems: 'center'
-    },
-    searchBar: {
-      flexDirection: 'row',
-      width: getWidth(1.1),
-      borderRadius: 10,
-      backgroundColor: 'white',
-      marginTop: 20,
-      alignItems: 'center',
-      marginBottom:30
-    },
-    input: {
-      padding: 10,
-      width:getWidth(1.5)
-    },
-    flatListContent: {
-      flexGrow: 1,
-    },
-    itemContainer: {
-    
-      backgroundColor: '#fff',
-      borderRadius: 10,
-      padding: 10,
-      marginBottom: 10,
-      flex: 1,
-      marginHorizontal: 5,
-   
-      width: getWidth(1.1),
-      flexDirection: 'row'
-    },
-    itemImage: {
-      width: 50,
-      height: 50,
-      borderRadius: 35,
-    },
-    itemName: {
-      fontWeight: '600',
-      marginTop: 5,
-      // fontFamily:'Jost',
-      fontFamily: 'Jost-Regular',
-      fontSize:20,
-      color:'black'
-    },
-    followButton: {
-      backgroundColor: 'blue',
-      paddingVertical: 5,
-      paddingHorizontal: 10,
-      borderRadius: 5,
-      marginTop: 5,
-    },
-    followButtonText: {
-      color: '#fff',
-    },
-     tabs: {
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  searchBar: {
+    flexDirection: 'row',
+    width: getWidth(1.1),
+    borderRadius: 10,
+    backgroundColor: 'white',
+    marginTop: 20,
+    alignItems: 'center',
+    marginBottom: 30
+  },
+  input: {
+    padding: 10,
+    width: getWidth(1.5)
+  },
+  flatListContent: {
+    flexGrow: 1,
+  },
+  itemContainer: {
+
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 10,
+    flex: 1,
+    marginHorizontal: 5,
+
+    width: getWidth(1.1),
+    flexDirection: 'row'
+  },
+  followview: { width: 40, height: 20, backgroundColor: 'white', marginLeft: 5, borderRadius: 10, justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: '#15B09B', },
+
+  itemImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 35,
+  },
+  itemName: {
+    fontWeight: '600',
+    marginTop: 5,
+    // fontFamily:'Jost',
+    fontFamily: 'Jost-Regular',
+    fontSize: 20,
+    color: 'black'
+  },
+  followButton: {
+    backgroundColor: 'blue',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    marginTop: 5,
+  },
+  followButtonText: {
+    color: '#fff',
+  },
+  tabs: {
     flexDirection: 'row',
     justifyContent: 'space-around',
- 
-    backgroundColor:'white',
-    width:getWidth(1.1),
-    borderRadius:15,
-    height:40,
-    marginTop:20,
-    marginBottom:15
+
+    backgroundColor: 'white',
+    width: getWidth(1.1),
+    borderRadius: 15,
+    height: 40,
+    marginTop: 20,
+    marginBottom: 15
   },
   tab: {
     flex: 1,
     alignItems: 'center',
-    
+
+    borderBottomWidth: 2,
+    borderBottomColor: 'transparent',
+    marginTop: 15
+  },
+  activeTab: {
+    borderBottomColor: 'transparent',
+  },
+  tabText: {
+    color: 'black',
+    fontSize: 18,
+    fontFamily: 'Jost',
+    fontWeight: '400'
+  },
+  activeTabText: {
+    color: 'white',
+    fontSize: 18,
+    fontFamily: 'Jost',
+    fontWeight: '400'
+  },
+  activefollowText: {
+    color: 'black',
+    fontSize: 12,
+    fontFamily: 'Jost',
+    fontWeight: '400'
+  },
+  followtabText: {
+    color: '#15B09B',
+    fontSize: 12,
+    fontFamily: 'Jost',
+    fontWeight: '400'
+  },
+
+  tabs: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+
+    backgroundColor: 'white',
+    width: getWidth(1.1),
+    borderRadius: 15,
+    height: 40,
+    marginTop: 20,
+    marginBottom: 15
+  },
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+
     borderBottomWidth: 2,
     borderBottomColor: 'transparent',
   },
@@ -205,47 +253,15 @@ const styles = StyleSheet.create({
   },
   tabText: {
     color: 'black',
-    fontSize:18,
-    fontFamily:'Jost',
-    fontWeight:'400'
+    fontSize: 18,
+    fontFamily: 'Jost',
+    fontWeight: '400'
   },
   activeTabText: {
     color: 'white',
-    fontSize:18,
-    fontFamily:'Jost',
-    fontWeight:'400'
-  }, tabs: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
- 
-    backgroundColor:'white',
-    width:getWidth(1.1),
-    borderRadius:15,
-    height:40,
-    marginTop:20,
-    marginBottom:15
+    fontSize: 18,
+    fontFamily: 'Jost',
+    fontWeight: '400'
   },
-  tab: {
-    flex: 1,
-    alignItems: 'center',
-    
-    borderBottomWidth: 2,
-    borderBottomColor: 'transparent',
-  },
-  activeTab: {
-    borderBottomColor: 'transparent',
-  },
-  tabText: {
-    color: 'black',
-    fontSize:18,
-    fontFamily:'Jost',
-    fontWeight:'400'
-  },
-  activeTabText: {
-    color: 'white',
-    fontSize:18,
-    fontFamily:'Jost',
-    fontWeight:'400'
-  },
-  });
+});
 export default Followers;
