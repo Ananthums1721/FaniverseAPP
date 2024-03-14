@@ -5,6 +5,17 @@ import images from "../assets/Images";
 
 const CommentPopUp = ({ isVisible, toggleModal }) => {
     const [searchQuery, setSearchQuery] = useState('');
+    const [liked, setLiked] = useState([]);
+
+    const toggleLike = (id) => {
+        const isLiked = liked.includes(id);
+        if (isLiked) {
+            setLiked(liked.filter(itemId => itemId !== id)); // Remove the id from the liked array if already liked
+        } else {
+            setLiked([...liked, id]); // Add the id to the liked array if not already liked
+        }
+    };
+
 
     const itemData = [
         {
@@ -87,7 +98,10 @@ const CommentPopUp = ({ isVisible, toggleModal }) => {
               alignItems: "center",
             }}
           >
-            <Image source={images.GrayThumbsUp} style={styles.notImage} />
+            <TouchableOpacity onPress={()=> toggleLike(item.id)}>
+            <Image source={liked.includes(item.id) ? images.Pinkthumbsup : images.GrayThumbsUp } style={styles.notImage} />
+            </TouchableOpacity>
+          
            
           </View>
         </TouchableOpacity>

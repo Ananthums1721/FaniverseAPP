@@ -52,6 +52,7 @@ const images = {
     Crown: require('./crown.png'),
     Whiteshare: require('./whiteshare.png'),
     GrayThumbsUp: require('./graythumbsup.png'),
+    Pinkthumbsup: require('./pinkthumbsup.png'),
     Greeenrytarrow: require('./Greeenrytarrow.png'),
 
   
