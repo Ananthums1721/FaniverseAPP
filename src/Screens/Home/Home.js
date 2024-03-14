@@ -15,6 +15,7 @@ import SwiperComponent from "../../Components/SwiperComponent";
 import ListItem from "../../Components/ListItem";
 import { getHeight, getWidth } from "../../Theme/Constants";
 import PopoverMenu from "../../Components/PopoverMenu";
+import { trial } from "../../api/index";
 
 const axios = require("axios").default;
 const height = Dimensions.get("window").height;
@@ -22,6 +23,23 @@ const height = Dimensions.get("window").height;
 const Home = (props) => {
   const navigation = useNavigation();
   const [ProfileData, setProfileData] = useState([]);
+
+  useEffect(() => {
+    getDetails();
+  }, []);
+
+  const getDetails = async () => {
+    let PAYLOAD = {
+      user_id: 1,
+    };
+    try {
+      let response = await trial(PAYLOAD);
+      setProfileData(response);
+      console.log(response, "===========------------=====");
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const [modalFalse, setModalFalse] = useState(true);
   const [pop, setPop] = useState(false);
