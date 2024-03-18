@@ -119,7 +119,7 @@ const Contests = (props) => {
     return chunks;
   }
   const handleImageBackgroundClick = () => {
-    // Navigate to the next screen
+  
     navigation.navigate("ContestDetails");
   };
   const renderItem = ({ item }) => (

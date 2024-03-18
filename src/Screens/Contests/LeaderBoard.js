@@ -47,7 +47,7 @@ const LeaderBoard = () => {
                 <Text style={{ fontWeight: '500', fontFamily: 'Jost', fontSize: 14, color: 'black' }}> {item.followers}</Text>
             </View>
             <View style={{ width: getWidth(5), justifyContent: 'center', alignItems: 'center' }}>
-                <Text>1888 Points</Text>
+                <Text style={{fontFamily: 'Jost-SemiBold',}}>1888 Points</Text>
             </View>
         </TouchableOpacity>
     );
@@ -68,7 +68,7 @@ const LeaderBoard = () => {
                     </Image>
                 </TouchableOpacity>
                 <Text style={styles.namestyle}> {'Joseph'}</Text>
-                <Text style={{ fontWeight: '500', fontFamily: 'Jost', fontSize: 14, color: 'black' }}>{'2300 Points'}</Text>
+                <Text style={{ fontFamily: 'Jost-SemiBold', fontSize: 14, color: 'black' }}>{'2300 Points'}</Text>
             </View>
             <View style={{ width: getWidth(4),  justifyContent: 'center', alignItems: 'center', marginTop: 45,    marginBottom:50 }}>
                 <Text style={styles.ranktext}>1</Text>
@@ -81,7 +81,7 @@ const LeaderBoard = () => {
                     </Image>
                 </TouchableOpacity>
                 <Text style={styles.namestyle}> {'Martin'}</Text>
-                <Text style={{ fontWeight: '500', fontFamily: 'Jost', fontSize: 14, color: 'black' }}>{'2300 Points'}</Text>
+                <Text style={{ fontFamily: 'Jost-SemiBold', fontSize: 14, color: 'black' }}>{'2300 Points'}</Text>
             </View>
             <View style={{ width: getWidth(4),  justifyContent: 'center', alignItems: 'center', marginTop: 45 }}>
                 <Text style={styles.ranktext}>3</Text>
@@ -94,7 +94,7 @@ const LeaderBoard = () => {
                     </Image>
                 </TouchableOpacity>
                 <Text style={styles.namestyle}> {'Joseph'}</Text>
-                <Text style={{ fontWeight: '500', fontFamily: 'Jost', fontSize: 14, color: 'black' }}>{'2300 Points'}</Text>
+                <Text style={{ fontFamily: 'Jost-SemiBold', fontSize: 14, color: 'black' }}>{'2300 Points'}</Text>
             </View>
             </View>
             <FlatList
@@ -233,7 +233,7 @@ marginBottom:10,
 
     },
     ranktext:{ fontSize: 20,  fontWeight: '800', color: 'black',marginBottom:10 },
-    namestyle:{ fontWeight: '800', fontFamily: 'Jost', fontSize: 16, color: 'black' ,marginTop:15}
+    namestyle:{ fontFamily: 'Jost-SemiBold', fontSize: 16, color: 'black' ,marginTop:15}
 
 });
 
