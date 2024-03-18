@@ -28,7 +28,7 @@ import { getHeight, getWidth } from '../../Theme/Constants';
 import ShowMoreText from '../../Components/ShowMoreText';
 
 const axios = require('axios').default;
-const height = Dimensions.get('window').height;
+
 
 
 const ContestDetailsWeek1 = props => {
@@ -43,27 +43,28 @@ const ContestDetailsWeek1 = props => {
     const data = [
         { id: '1', title: 'Virat Kohli', imageUrl: images.Cricket },
         { id: '2', title: 'Virat Kohli', imageUrl: images.Welcome_2 },
-        { id: '3', title: 'Item 3', imageUrl: images.Welcome_3 },
-        { id: '4', title: 'Item 2', imageUrl: images.Welcome_1 },
-        { id: '5', title: 'Item 5', imageUrl: images.Welcome_2 },
-        { id: '6', title: 'Item 8', imageUrl: images.Welcome_3 },
-        { id: '7', title: 'Item 7', imageUrl: images.Welcome_3 },
-    
+        { id: '3', title: 'Item ', imageUrl: images.Welcome_3 },
+        { id: '4', title: 'Item ', imageUrl: images.Welcome_1 },
+        { id: '5', title: 'Item ', imageUrl: images.Welcome_2 },
+        { id: '6', title: 'Item ', imageUrl: images.Welcome_3 },
+        { id: '7', title: 'Item ', imageUrl: images.Welcome_3 },
+
     ];
     const swiperdata = [
         { id: '1', title: 'Item 1', imageUrl: images.ViratBanner },
-        { id: '2', title: 'Item 2', imageUrl: images.ViratBanner },
-        { id: '3', title: 'Item 4', imageUrl: images.ViratBanner },
-        { id: '4', title: 'Item 6', imageUrl: images.Welcome_1 },
+
 
     ];
-    const verticalListData = [
-        { id: '1', name: 'Virat Kohli', type: 'image', media: 'https://i0.wp.com/www.rvcj.com/wp-content/uploads/2023/01/VIRAT-KOHLI-2.jpg?resize=600%2C451&ssl=1', designation: 'Bangalore', description: 'Stumptown brunch raw umami flannel dollar pour-over ipsum. Booth glossier squid craft kale.😍❤️❤️', image: images.ViratProfile },
-        { id: '2', name: 'Jane Smith', type: 'image', media: 'https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/09/instagram-image-size.jpg', designation: 'Product Manager', description: 'Software fcrtdcvg ', image: images.Welcome_1 },
-        { id: '3', name: 'Alice Johnson', type: 'video', media: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', designation: 'UI/UX Designer', description: 'Software vhgftrdfcgv bn dr', image: images.Welcome_1 },
-        { id: '4', name: 'Virat Kohli', type: 'image', media: 'https://i0.wp.com/www.rvcj.com/wp-content/uploads/2023/01/VIRAT-KOHLI-2.jpg?resize=600%2C451&ssl=1', designation: 'Bangalore', description: 'Stumptown brunch raw umami flannel dollar pour-over ipsum. Booth glossier squid craft kale.😍❤️❤️', image: images.ViratProfile },
-        { id: '5', name: 'Jane Smith', type: 'image', media: 'https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/09/instagram-image-size.jpg', designation: 'Product Manager', description: 'Software fcrtdcvg ', image: images.Welcome_1 },
-   
+    const itemData = [
+        { id: 1, name: 'Alex Linderson', followers: 'Mariya Jacob', image: images.ViratBanner },
+        { id: 2, name: 'Jacob Jones', followers: 'Mariya tacob', image: images.Welcome_1 },
+        { id: 3, name: 'Item Name ', followers: ' Mariya Jacob', image: images.Welcome_2 },
+        { id: 4, name: 'Item Name ', followers: 'Mariya Jacob', image: images.Welcome_1 },
+        { id: 5, name: 'Item Name ', followers: 'Mariya Jacob', image: images.Welcome_2 },
+        { id: 6, name: 'Item Name ', followers: 'Mariya Jacob', image: images.Welcome_2 },
+        { id: 7, name: 'Item Name ', followers: 'Mariya Jacob', image: images.Welcome_1 },
+        { id: 8, name: 'Item Name ', followers: 'Mariya Jacob', image: images.Welcome_2 },
+        { id: 9, name: 'Item Name ', followers: 'Mariya Jacob', image: images.Welcome_2 },
     ];
     const handleTabPress = (tabIndex) => {
         setSelectedTab(tabIndex);
@@ -80,6 +81,21 @@ const ContestDetailsWeek1 = props => {
         }
         return chunks;
     };
+    const renderItemleader = ({ item }) => (
+        <TouchableOpacity style={styles.item2Container}>
+            <View style={styles.leaderview}>
+                <Text style={{ marginRight: 15, marginLeft: 6 }}>{item.id}</Text>
+                <Image source={item.image} style={styles.itemImage} />
+            </View>
+            <View style={{ width: getWidth(2.5), justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ fontWeight: '500', fontFamily: 'Jost', fontSize: 14, color: 'black' }}> {item.followers}</Text>
+            </View>
+            <View style={{ width: getWidth(5), justifyContent: 'center', alignItems: 'center' }}>
+                <Text>1888 Points</Text>
+            </View>
+        </TouchableOpacity>
+    );
+
     const renderItem = ({ item }) => (
         <View style={styles.itemContainer}>
             <Image source={item.imageUrl} style={styles.image} />
@@ -88,25 +104,25 @@ const ContestDetailsWeek1 = props => {
     );
 
     const renderImageItem = ({ item }) => (
-        <ImageBackground source={item.imageUrl} resizeMode="stretch" imageStyle={styles.imageStyle} style={{ width: getWidth(2.2), padding: 10, height: 250, marginBottom: 15, justifyContent: 'space-between' }}>
-            {/* <Image source={item.imageUrl} style={{ width: '100%', height: 120 }} /> */}
-            <View style={{ width: 40, height: 40, backgroundColor: '#2EBF91', borderRadius: 7, justifyContent: 'center', alignItems: 'center',alignSelf:'flex-end' }}>
-                <Text style={{ color: 'white', }}>Dec 02</Text>
+        <ImageBackground source={item.imageUrl} resizeMode="stretch" imageStyle={styles.imageStyle} style={{ width: getWidth(2.2), height: 250, marginBottom: 15, justifyContent: 'space-between' }}>
+
+            <View style={{ width: '100%', height: 40, borderRadius: 7, justifyContent: 'center', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', padding: 10 }}>
+                <Text style={{ color: 'white', }}>127 k</Text>
+                <Image source={images.ThumbsUp} style={styles.image} />
             </View>
-            <View>
-            <View style={{ width: 80, height: 20, backgroundColor: '#C84E89', borderRadius: 5, justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ color: 'white', }}>Week 1 </Text>
-            </View>
-                <Text style={{ color: 'white' ,fontSize:18}}>The Begining
-                </Text>
-                
-                <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
-                    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 15, marginTop: 5, width: getWidth(4.5) }}>
+            <View style={{ backgroundColor: 'white', width: '100%', borderBottomLeftRadius: 15, borderBottomRightRadius: 15 }}>
+                <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 15, marginTop: 10 }}>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 15, marginTop: 5, width: getWidth(7), marginLeft: 5 }}>
                         {swiperdata.map((item) => (
-                            renderItem({ item }) // Assuming renderItem is a function that renders the item
+                            renderItem({ item })
                         ))}
                     </ScrollView>
-                    <Text style={{ fontSize: 10, color: 'white' }}>15k+ Participants</Text>
+                    <View style={{ width: getWidth(3), }}>
+                        <Text style={{ color: 'black', fontSize: 12, marginBottom: 2, fontFamily: 'Jost-Bold' }}>Wade Warren
+                        </Text>
+                        <Text style={{ fontSize: 10, color: 'black', fontFamily: 'Jost-Regular' }}>10K Followers</Text>
+                    </View>
+
                 </View>
 
             </View>
@@ -123,69 +139,89 @@ const ContestDetailsWeek1 = props => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <Header title="Kohli Chronicles - Week 1" />
-            <ScrollView style={{ backgroundColor: 'white' }}>
-              <ImageBackground source={images.Cricket} resizeMode="stretch" style={{ width: getWidth(1), padding: 10, height: 260, marginBottom: 15, justifyContent: 'space-between' }}>
-                   
-                    
-                  <View>
-                        <TouchableOpacity onPress={()=> navigation.navigate('LeaderBoard')} style={{ width: 256, height: 40, backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: 7, justifyContent: 'center', alignItems: 'center',flexDirection:'row' }}>
-                            <Text style={{ color: 'white',marginRight:5, fontFamily: 'Jost-SemiBold', }}>Week 1 Challenge video tutorial</Text>
-                      
+            <ScrollView >
+                <ImageBackground source={images.Cricket} resizeMode="stretch" style={{ width: getWidth(1), padding: 10, height: 260, marginBottom: 15, justifyContent: 'space-between' }}>
+                    <View>
+                        <TouchableOpacity onPress={() => navigation.navigate('LeaderBoard')} style={{ width: 256, height: 40, backgroundColor: 'rgba(0, 0, 0, 0.5)', borderRadius: 7, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
+                            <Text style={{ color: 'white', marginRight: 5, fontFamily: 'Jost-SemiBold', }}>Week 1 Challenge video tutorial</Text>
                         </TouchableOpacity>
-                      
                     </View>
-                    <View style={{alignSelf:'center',marginBottom:-35}}>
-                        <TouchableOpacity onPress={()=> navigation.navigate('LeaderBoard')} style={{ width: getWidth(2.5), height: 50, backgroundColor: '#C84E89', borderRadius: 17, justifyContent: 'center', alignItems: 'center',flexDirection:'row' }}>
-                        <Image source={images.PlusCircle} style={styles.image} />
+                    <View style={{ alignSelf: 'center', marginBottom: -35 }}>
+                        <TouchableOpacity onPress={() => navigation.navigate('LeaderBoard')} style={{ width: getWidth(2.5), height: 50, backgroundColor: '#C84E89', borderRadius: 17, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
+                            <Image source={images.PlusCircle} style={styles.image} />
                             <Text style={styles.uploadtxt}>Upload Your Reel</Text>
-                           
                         </TouchableOpacity>
-                      
+
                     </View>
                 </ImageBackground>
                 <View style={{ width: getWidth(1.1), alignSelf: 'center', marginBottom: 10, marginTop: 10 }}>
-                <Text style={{ color: 'black', fontSize: 20,  fontFamily: 'Jost-SemiBold', }}>Week 1  
-                        </Text>
-                <Text style={{ color: 'black', fontSize: 20,fontWeight:'800', fontFamily: 'Jost-SemiBold', }}>
-                The Beginings
-                        </Text>
+                    <Text style={{ color: 'black', fontSize: 20, fontFamily: 'Jost-Regular', }}>Week 1
+                    </Text>
+                    <Text style={{ color: 'black', fontSize: 20, fontWeight: '800', fontFamily: 'Jost-SemiBold', }}>
+                        The Beginings
+                    </Text>
                     <ShowMoreText text={longText} maxLength={100} />
-                
+
                 </View>
                 <View style={styles.tabs}>
-        <TouchableOpacity onPress={() => handleTabPress(0)} style={[styles.tab, selectedTab === 0 && styles.activeTab]}>
-       
-          <LinearGradient
-            colors={selectedTab === 0 ? ['#8360C3', '#2EBF91'] : ['transparent', 'transparent']}
-            style={{width:'100%',height:40,justifyContent:'center',alignItems:'center',borderTopLeftRadius:15,borderBottomLeftRadius:15}}
-            start={{x: 0, y: 0.5}} 
-            end={{x: 1, y: 0.5}}
-          >
-            <Text style={selectedTab === 0 ? styles.activeTabText : styles.tabText}>Followers</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleTabPress(1)} style={[styles.tab, selectedTab === 1 && styles.activeTab]}>
-      
-          <LinearGradient
-            colors={selectedTab === 1 ? ['#8360C3', '#2EBF91'] : ['transparent', 'transparent']}
-            style={{ width:'100%',height:40,justifyContent:'center',alignItems:'center',borderTopRightRadius:15,borderBottomRightRadius:15}}
-            start={{x: 0, y: 0.5}} 
-            end={{x: 1, y: 0.5}}
-          >
-            <Text style={selectedTab === 1 ? styles.activeTabText : styles.tabText}>Following</Text>
-          </LinearGradient>
-        </TouchableOpacity>
-      </View>
-             
-                <ScrollView contentContainerStyle={styles.flatListContent}>
-                    {chunkArray(data, 2).map((row, index) => (
-                        <View style={styles.rowContainer} key={index}>
-                            {row.map((item) => (
-                                renderImageItem({ item }) // Assuming renderImageItem is a function that renders the image item
-                            ))}
-                        </View>
-                    ))}
-                </ScrollView>
+                    <TouchableOpacity onPress={() => handleTabPress(0)} style={[styles.tab, selectedTab === 0 && styles.activeTab]}>
+
+                        <LinearGradient
+                            colors={selectedTab === 0 ? ['#8360C3', '#2EBF91'] : ['transparent', 'transparent']}
+                            style={{ width: '100%', height: 40, justifyContent: 'center', alignItems: 'center', borderTopLeftRadius: 15, borderBottomLeftRadius: 15, flexDirection: 'row' }}
+                            start={{ x: 0, y: 0.5 }}
+                            end={{ x: 1, y: 0.5 }}
+                        >
+                            <Image style={{ width: 20, height: 20, marginRight: 5 }} source={selectedTab === 0 ? images.WhiteReel : images.GrayReel} />
+                            <Text style={selectedTab === 0 ? styles.activeTabText : styles.tabText}>Contest reels</Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => handleTabPress(1)} style={[styles.tab, selectedTab === 1 && styles.activeTab]}>
+
+                        <LinearGradient
+                            colors={selectedTab === 1 ? ['#8360C3', '#2EBF91'] : ['transparent', 'transparent']}
+                            style={{ width: '100%', height: 40, justifyContent: 'center', alignItems: 'center', borderTopRightRadius: 15, borderBottomRightRadius: 15, flexDirection: 'row' }}
+                            start={{ x: 0, y: 0.5 }}
+                            end={{ x: 1, y: 0.5 }}
+                        >
+                            <Image style={{ width: 15, height: 15, marginRight: 5 }} source={selectedTab === 1 ? images.White_trophy : images.Black_trophy} />
+                            <Text style={selectedTab === 1 ? styles.activeTabText : styles.tabText}>Leaderboard</Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
+                </View>
+
+
+
+                {selectedTab === 0 ? (
+                    <ScrollView contentContainerStyle={styles.flatListContent}>
+                        {chunkArray(data, 2).map((row, index) => (
+                            <View style={styles.rowContainer} key={index}>
+                                {row.map((item) => (
+                                    renderImageItem({ item })
+                                ))}
+                            </View>
+                        ))}
+                    </ScrollView>
+                ) : (
+
+                    <ScrollView contentContainerStyle={styles.flatListContent}>
+                        {/* <FlatList
+data={itemData}
+renderItem={renderItemleader}
+keyExtractor={(item) => item?.id?.toString()}
+contentContainerStyle={styles.flatListContent}
+/> */}
+                        {chunkArray(itemData, 1).map((row, index) => (
+                            <View style={styles.rowContainer} key={index}>
+                                {row.map((item) => (
+                                    renderItemleader({ item })
+                                ))}
+                            </View>
+                        ))}
+
+                    </ScrollView>
+                    // </View>
+                )}
             </ScrollView>
             <Footer title={'trophy'} />
         </SafeAreaView>
@@ -193,8 +229,7 @@ const ContestDetailsWeek1 = props => {
 };
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
-        // backgroundColor: '#fff',
+
         justifyContent: 'center',
         alignItems: 'center'
 
@@ -205,60 +240,54 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: 'white',
         marginTop: 20,
-        alignItems: 'center'
-        // height:40
     },
     input: {
-        // borderWidth: 1,
-        // borderColor: 'gray',
         padding: 10,
     },
     tabs: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-     alignSelf:'center',
-        backgroundColor:'white',
-        width:getWidth(1.1),
-        borderRadius:15,
-        height:40,
-        marginTop:20,
-        marginBottom:15,
-        borderColor:'gray',
-        borderWidth:.5
-      },
-      tab: {
+        alignSelf: 'center',
+        backgroundColor: 'white',
+        width: getWidth(1.1),
+        borderRadius: 15,
+        height: 40,
+        marginTop: 20,
+        marginBottom: 15,
+        borderColor: 'gray',
+        borderWidth: .5
+    },
+    tab: {
         flex: 1,
         alignItems: 'center',
-        
+
         borderBottomWidth: 2,
         borderBottomColor: 'transparent',
-      },
+    },
     activeTab: {
         borderBottomColor: 'transparent',
     },
     tabText: {
         color: 'gray',
         fontSize: 18,
-        fontFamily: 'Jost',
+        fontFamily: 'Jost-SemiBold',
         fontWeight: '400'
     },
     activeTabText: {
         color: 'white',
         fontSize: 18,
-        fontFamily: 'Jost',
+        fontFamily: 'Jost-SemiBold',
         fontWeight: '400'
     },
     activeItemText: {
         color: '#6F76B7',
         fontSize: 18,
-        fontFamily: 'Jost',
+        fontFamily: 'Jost-SemiBold',
         fontWeight: '400',
         marginBottom: 10
     },
     flatListContent: {
         flexGrow: 1,
-
-
     },
     itemContainer: {
         width: 26,
@@ -271,6 +300,17 @@ const styles = StyleSheet.create({
         marginBottom: 1,
         backgroundColor: '#6F76B7'
     },
+    item2Container: {
+        justifyContent: 'space-between',
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        padding: 10,
+        marginBottom: 10,
+        flex: 1,
+        marginHorizontal: 5,
+        width: getWidth(1.1),
+        flexDirection: 'row'
+    },
     image: {
         width: 22,
         height: 22,
@@ -278,9 +318,9 @@ const styles = StyleSheet.create({
         // margin: -8
     },
     itemImage: {
-        width: '100%',
-        height: 100,
-        borderRadius: 5,
+        width: 30,
+        height: 30,
+        borderRadius: 35,
     },
     itemName: {
         fontWeight: 'bold',
@@ -307,49 +347,21 @@ const styles = StyleSheet.create({
         height: 80,
         width: 80,
 
-        borderRadius: 45, // half of height/width for perfect circle
+        borderRadius: 45,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0,0,0,0.3)', // Adjust opacity or color as needed
+        backgroundColor: 'rgba(0,0,0,0.3)',
     },
     fanBackground: {
         height: 60,
         width: 60,
 
-        borderRadius: 35, // half of height/width for perfect circle
+        borderRadius: 35,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0,0,0,0.3)', // Adjust opacity or color as needed
+        backgroundColor: 'rgba(0,0,0,0.3)',
     },
-    logo: {
-        width: 30,
-        height: 30,
-        position: 'absolute',
-        top: 65,
-        backgroundColor: '#00D2FF',
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center'
-        // right: 15,
-    },
-    outerview: {
-        height: 85,
-        width: 85,
 
-        borderRadius: 45, // half of height/width for perfect circle
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#7E65C0'
-    },
-    fanouterview: {
-        height: 65,
-        width: 65,
-
-        borderRadius: 45, // half of height/width for perfect circle
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#7E65C0'
-    },
     flatListContent: {
         flexGrow: 1,
     },
@@ -357,23 +369,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 10,
-    },
-    clickableGradient: {
-        // position: 'absolute',
-
-        height: 50, // Adjust height as needed
-
-        width: getWidth(1.1),
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf: 'center',
-        borderRadius: 19,
-        flexDirection: 'row',
-        backgroundColor: 'white',
-        // borderWidth:1,
-        // borderColor:'gray',
-        marginTop: 20,
-        marginBottom: 20
     },
     gradient: {
         position: 'absolute',
@@ -393,28 +388,18 @@ const styles = StyleSheet.create({
     },
 
     clickableItems: {
-        // position: 'absolute',
-
-        height: 50, // Adjust height as needed
-
+        height: 50,
         width: getWidth(1.1),
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
-
         flexDirection: 'row',
-        // backgroundColor: 'white',
-        // borderWidth:1,
-        // borderColor:'gray',
         marginTop: 20,
         marginBottom: 20
     },
     bottumitem: {
         flex: 1,
         alignItems: 'center',
-        // borderColor: 'gray',
-        // borderWidth: 1
-
 
     },
     flatListContent: {
@@ -422,8 +407,9 @@ const styles = StyleSheet.create({
 
     },
     imageStyle: {
-        borderRadius: 20, // Set the same border radius as the background image
+        borderRadius: 20,
     },
-    uploadtxt:{ color: 'white',marginLeft:5 , fontFamily: 'Jost-SemiBold',}
+    uploadtxt: { color: 'white', marginLeft: 5, fontFamily: 'Jost-SemiBold', },
+    leaderview: { width: getWidth(8), flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }
 });
 export default ContestDetailsWeek1;

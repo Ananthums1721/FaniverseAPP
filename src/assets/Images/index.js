@@ -54,6 +54,8 @@ const images = {
     GrayThumbsUp: require('./graythumbsup.png'),
     Pinkthumbsup: require('./pinkthumbsup.png'),
     Greeenrytarrow: require('./Greeenrytarrow.png'),
+    Black_trophy: require('./black_trophy.png'),
+    White_trophy: require('./white_trophy.png'),
 
   
   };
