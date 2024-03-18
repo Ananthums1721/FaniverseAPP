@@ -84,7 +84,6 @@ const images = {
   Greeenrytarrow: require("./Greeenrytarrow.png"),
   Black_trophy: require("./black_trophy.png"),
   White_trophy: require("./white_trophy.png"),
-
   TrophyFilled: require("./TrophyFilled.png"),
   Contest: require("./Contest.png"),
   ContestFilled: require("./ContestFilled.png"),
